@@ -17,11 +17,24 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $guarded=[
+        
     ];
+
+    protected $table='account';
+    protected $primaryKey='account_id';
+
+    public function order(){
+        return $this->hasMany(Order::class, 'account_id', 'account_id');
+    }
+
+    public function gender(){
+        return $this->belongsTo(Gender::class, 'gender_id', 'gender_id');
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class, 'role_id', 'role_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
