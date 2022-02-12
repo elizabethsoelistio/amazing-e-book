@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountMaintanceController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EbookController;
 use App\Http\Controllers\HomepageController;
@@ -40,3 +41,10 @@ Route::post('/rent-all', [CartController::class, 'deleteAll']);
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 Route::post('/update-profile', [ProfileController::class, 'update']);
+
+// Admin
+
+Route::get('/account-maintance', [AccountMaintanceController::class, 'index'])->middleware('admin');
+Route::get('/update-role/{id}', [AccountMaintanceController::class, 'update_role'])->middleware('admin');
+Route::post('/remove-user', [AccountMaintanceController::class, 'delete_user']);
+Route::post('/update-role-user', [AccountMaintanceController::class, 'update_role_user']);
