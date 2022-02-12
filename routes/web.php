@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,16 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index']);
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', function () {
-    return view('register/register');
-});
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 
-Route::get('/home', function () {
-    return view('homepage/home');
-});
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/home', [HomepageController::class, 'index'])->middleware('auth');

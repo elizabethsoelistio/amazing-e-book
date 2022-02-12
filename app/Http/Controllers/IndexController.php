@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index(){
         return view('index.index', [
-            'title' => 'Amazing E-Book | Index Page'
+            'title' => 'Index Page'
         ]);
     }
 }

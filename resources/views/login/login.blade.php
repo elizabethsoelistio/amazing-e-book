@@ -1,6 +1,7 @@
 @extends('header.header')
 
 @section('container')
+
 @if (session()->has('loginError'))
 <div class="container d-flex justify-content-center mt-3">
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -9,6 +10,7 @@
     </div>
 </div>
 @endif
+
 <section class="vh-100">
     <div class="container-fluid">
       <div class="row">
@@ -27,7 +29,7 @@
                 
               {{-- Input email --}}
               <div class="form-outline mb-4">
-                <input type="email" name="email" id="email" class="form-control form-control-lg  placeholder="name@example.com" />
+                <input type="email" name="email" id="email" class="form-control form-control-lg />
                 <label class="form-label" for="email">Email address</label>
 
                 {{-- @error('email')
@@ -41,7 +43,7 @@
   
               {{-- input password --}}
               <div class="form-outline mb-4">
-                <input type="password" id="password" class="form-control form-control-lg" placeholder="pasword" name="password"/>
+                <input type="password" id="password" class="form-control form-control-lg" name="password"/>
                 <label class="form-label" for="password">Password</label>
               </div>
   
@@ -57,9 +59,9 @@
   
         </div>
 
-        {{-- <div class="col-sm-6 px-0 d-none d-sm-block">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp" alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
-        </div> --}}
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="{{ url('image/2.jpeg') }}" alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+        </div>
       </div>
     </div>
   </section>
