@@ -16,11 +16,11 @@ class AccountSeeder extends Seeder
     public function run()
     {
         DB::table('account')->insert([
-            ['account_id' => '1', 'role_id' => 1, 'gender_id' => 1, 'first_name' => 'Minmin', 'middle_name' => '', 'last_name' => 'Minmin1', 'email' => 'minmin@mantap.com', 'password' =>bcrypt('pasrahajah'), 'display_picture_link' => 'admin/1.jpeg'],
+            ['account_id' => '1', 'role_id' => 1, 'gender_id' => 1, 'first_name' => 'Admin', 'middle_name' => '', 'last_name' => '1', 'email' => 'admin1@admin.com', 'password' =>bcrypt('admin'), 'display_picture_link' => 'admin/1.jpeg'],
 
-            ['account_id' => '2', 'role_id' => 2, 'gender_id' => 2, 'first_name' => 'Userku', 'middle_name' => '', 'last_name' => 'Cantik1', 'email' => 'userku1@mantap.com', 'password' =>bcrypt('makanapaya'), 'display_picture_link' => 'user/1man.jpeg'],
+            ['account_id' => '2', 'role_id' => 2, 'gender_id' => 2, 'first_name' => 'User', 'middle_name' => '', 'last_name' => '1', 'email' => 'user1@user.com', 'password' =>bcrypt('user'), 'display_picture_link' => 'user/1man.jpeg'],
 
-            ['account_id' => '3', 'role_id' => 2, 'gender_id' => 1, 'first_name' => 'Userku', 'middle_name' => '', 'last_name' => 'Cantik2', 'email' => 'userku2@mantap.com', 'password' =>bcrypt('minumapaya'), 'display_picture_link' => 'user/2woman.jpeg']
+            ['account_id' => '3', 'role_id' => 2, 'gender_id' => 1, 'first_name' => 'User', 'middle_name' => '', 'last_name' => '2', 'email' => 'user2@user.com', 'password' =>bcrypt('user'), 'display_picture_link' => 'user/2woman.jpeg']
             
 
 
