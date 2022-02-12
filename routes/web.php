@@ -5,6 +5,7 @@ use App\Http\Controllers\EbookController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,6 @@ Route::post('/add-to-cart/{ebook_id}', [EbookController::class, 'add_to_cart'])-
 Route::get('/cart', [CartController::class, 'show'])->middleware('auth');
 Route::post('/delete-book', [CartController::class, 'delete']);
 Route::post('/rent-all', [CartController::class, 'deleteAll']);
+
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::post('/update-profile', [ProfileController::class, 'update']);

@@ -5,37 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class ProfileController extends Controller
 {
     public function index(){
-        return view('register.register', [
-            'title' => 'Register'
+
+        return view('profile.profile', [
+            'title' => 'Profile'
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request){
-        // dd($request->all());
-        
+    public function update(Request $request){
         $validate_data = $request->validate([
             'first_name' => 'required|max:25|alpha_num',
             'middle_name' => 'max:25',
             'last_name' => 'required|max:25|alpha_num',
             'email' => 'required|email:dns|unique:users',
             'password'=>'required|max:50|min:8',
-            'gender_id' => 'required',
-            'role_id' => 'required',
-            'display_picture_link' => 'required'
+            'gender_id' => 'required'
         ]);
-
-        $last_acc_id = User::orderBy('account_id', 'desc')->first();
-
-        $validate_data['account_id'] = (int)$last_acc_id ->account_id+1;
 
         // dd('yay');
 
@@ -54,22 +41,26 @@ class RegisterController extends Controller
             $validate_data['gender_id'] = 2;
         }
 
-        if($validate_data['role_id'] == 'admin'){
-            $validate_data['role_id'] = 1;
-        } else if ($validate_data['role_id'] == 'member'){
-            $validate_data['role_id'] = 2;
-        }
+        $account = User::where('account_id', auth()->user()->account_id)->first();
+        
+        $account->first_name = $validate_data['first_name'];
+        $account->last_name = $validate_data['last_name'];
+        $account->gender_id = $validate_data['gender_id'];
+        $account->email = $validate_data['email'];
+        $account->password = $validate_data['password'];
 
         if($request->file('display_picture_link')){
             $validate_data['display_picture_link'] = 'storage/' . $request->file('display_picture_link')->store('images/user_img');
         }
 
-        $last_acc_id->save();
+        $account->save();
 
-        User::create($validate_data);
-        $request->session()->flash('regis_success', 'Registration successful! Please login!');
+        return view('/profile-saved', [
+            'title'=>'Profile Saved',
+            'message' => 'Profile Saved!'
+        ]);
 
-        return redirect('/login');
-
+        
     }
+
 }
