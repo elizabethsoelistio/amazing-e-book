@@ -16,6 +16,11 @@ class HomepageController extends Controller
         ]);
     }
 
+    public function redirect(){
+        
+       return redirect('/home');
+    }
+
     
 
 }

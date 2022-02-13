@@ -28,7 +28,7 @@ class ProfileController extends Controller
 
         if($request->hasFile('display_picture_link')){
             $request->validate([
-                'display_picture_link' => 'image|file'
+                'display_picture_link' => 'image'
             ]);
         }
 

@@ -1,23 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-white w-100">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="/">Amazing E-Book</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        
-        {{-- @auth --}}
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/home">Home <span class="sr-only"></span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/cart">Cart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/profile">Profile</a>
-              </li>
 
-        {{-- @endauth --}}
-
-    </div>
-</nav> 
+<div class="text-center" style="padding: 2rem">
+  
+    <header class=" mb-auto text-center">
+      <div class="inner">
+        <h3 class=""><a href="/">Amazing E-Book</a></h3>
+        <nav class="nav justify-content-center">
+          <a class="nav-link active" href="/home">Homepage</a>
+          <a class="nav-link active" href="/cart">Cart</a>
+          <a class="nav-link active" href="/profile">Profile</a>
+          @auth
+            @if (auth()->user()->role_id === 1)
+              <a class="nav-link active" href="/account-maintance">Account Maintance</a>
+            @endif
+          @endauth
+          
+          @auth
+            <form action="logout" method="POST">
+              @csrf
+              <button type="submit" class="nav-link active">Logout</button>
+            </form> 
+          @endauth
+          
+          
+        
+          
+        </nav>
+      </div>
+    </header>
+ 
+  </div>

@@ -30,7 +30,7 @@ class RegisterController extends Controller
             'password'=>'required|max:50|min:8',
             'gender_id' => 'required',
             'role_id' => 'required',
-            'display_picture_link' => 'required'
+            'display_picture_link' => 'required|image'
         ]);
 
         $last_acc_id = User::orderBy('account_id', 'desc')->first();
@@ -41,7 +41,7 @@ class RegisterController extends Controller
 
         if($request->hasFile('display_picture_link')){
             $request->validate([
-                'display_picture_link' => 'image|file'
+                'display_picture_link' => 'image'
             ]);
         }
 

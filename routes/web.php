@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/home', [HomepageController::class, 'index']);
+Route::get('/', [HomepageController::class, 'redirect']);
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -29,8 +30,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/home', [HomepageController::class, 'index'])->middleware('auth');
 
 Route::get('/ebook/{ebook_id}', [EbookController::class, 'show'])->middleware('auth');
 Route::post('/add-to-cart/{ebook_id}', [EbookController::class, 'add_to_cart'])->middleware('auth');

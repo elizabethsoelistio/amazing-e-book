@@ -3,7 +3,7 @@
 @section('container')
 
 
-<section class="h-100 bg-dark">
+<section class="h-100" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
@@ -11,11 +11,7 @@
           <div class="row g-0">
             
             <div class="col-xl-6 d-none d-xl-block">
-                @if(auth()->user()->display_picture_link === null)
-                    <img src="{{ URL::asset('images/profile-pic/no-image.jpg') }}" alt="" height="300px">
-                @else
-                    <img src="{{ URL::asset(auth()->user()->display_picture_link) }}" alt="" height="650px">
-                @endif
+                <img src="{{ URL::asset(auth()->user()->display_picture_link) }}" alt="" height="650px">
             </div>
 
             <div class="col-xl-6">
