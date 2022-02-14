@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
-class isAdmin
+class Localization
 {
     /**
      * Handle an incoming request.
@@ -16,8 +18,8 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || auth()->user()->role_id !== 1){
-            return redirect('/home');
+        if(Session::has('locale')){
+            App::setLocale(Session::get('locale'));
         }
         return $next($request);
     }

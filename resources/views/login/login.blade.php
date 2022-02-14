@@ -31,14 +31,14 @@
                   @csrf
 
                   <div class="d-flex align-items-center mb-3 pb-1">
-                    <span class="h1 fw-bold mb-0">Login</span>
+                    <span class="h1 fw-bold mb-0">{{__("Login") }}</span>
                   </div>
 
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">{{__("Sign into your account") }}</h5>
 
                   <div class="form-outline mb-4">
                     <input type="email" id="email" class="form-control @error('email') is-invalid @enderror form-control-lg" placeholder="user@example.com" autofocus required name="email"/>
-                    <label class="form-label" for="email">Email Address</label>
+                    <label class="form-label" for="email">{{__("Email Address") }}</label>
 
                     @error('email')
                       <div class="email-invalid">
@@ -49,7 +49,7 @@
 
                   <div class="form-outline mb-4">
                     <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" />
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">{{__("Password") }}</label>
 
                     @error('password')
                       <div class="password-invalid">
@@ -59,10 +59,10 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">{{__("Login") }}</button>
                   </div>
 
-                  <p style="color: #393f81;">Don't have an account? <a href="/register" style="color: #393f81;">Register here</a></p>
+                  <p style="color: #393f81;">{{__("Don't have an account?") }} <a href="/register" style="color: #393f81;">{{__("Register now!") }}</a></p>
                   
                 </form>
 

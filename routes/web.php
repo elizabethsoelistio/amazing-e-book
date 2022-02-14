@@ -22,7 +22,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', [HomepageController::class, 'index']);
-Route::get('/', [HomepageController::class, 'redirect']);
+Route::get('/', [HomepageController::class, 'redirect'])->name('home');
+
+Route::get('/language/{locale}', function($locale){
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

@@ -21,7 +21,7 @@
 
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
-                <h3 class="mb-5 ">Update Profile</h3>
+                <h3 class="mb-5 ">{{__("Update Profile") }}</h3>
 
                 <form action="/update-profile" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -31,7 +31,7 @@
                       <div class="form-outline">
                         <input type="text" id="first_name" class="form-control form-control-lg @error('first_name') is-invalid
                         @enderror" name="first_name" required value="{{ auth()->user()->first_name }}" autofocus required />
-                        <label class="form-label" for="first_name">First Name</label>
+                        <label class="form-label" for="first_name">{{__("First Name") }}</label>
 
                         @error('first_name')
                            {{ $message }} 
@@ -48,7 +48,7 @@
                         @else
                           <input type="text" id="middle_name" class="form-control form-control-lg @error('middle_name') is-invalid @enderror" name="middle_name" value="{{ auth()->user()->middle_name }}" />
                         @endif
-                        <label class="form-label" for="middle_name">Middle Name</label>
+                        <label class="form-label" for="middle_name">{{__("Middle Name") }}</label>
                         
                         <br>
                         @error('middle_name')
@@ -65,7 +65,7 @@
                       <div class="form-outline">
                         <input type="text" id="last_name" class="form-control form-control-lg @error('last_name') is-invalid
                         @enderror" name="last_name" required value="{{ auth()->user()->last_name }}"/>
-                        <label class="form-label" for="last_name">Last Name</label>
+                        <label class="form-label" for="last_name">{{__("Last Name") }}</label>
                         <br>
                         @error('last_name')
                           {{ $message }}
@@ -74,10 +74,10 @@
                     </div>
 
                     <div class="col-md-6 mb-4">
-                      <h6 class="mb-0 me-4">Gender: </h6>
+                      <h6 class="mb-0 me-4">{{__("Gender:") }} </h6>
 
                         <div class="form-check form-check-inline mb-0 me-4">
-                            <label class="form-check-label" for="femaleGender" >Female</label>
+                            <label class="form-check-label" for="femaleGender" >{{__("Female") }}</label>
                             @if (auth()->user()->gender_id == 1 )
                                 <input
                                 class="form-check-input"
@@ -103,7 +103,7 @@
                         </div>
 
                         <div class="form-check form-check-inline mb-0 me-4">
-                            <label class="form-check-label" for="maleGender" >Male</label>
+                            <label class="form-check-label" for="maleGender" >{{__("Male") }}</label>
                             @if (auth()->user()->gender_id === 2 )
                                 <input
                                 class="form-check-input"
@@ -135,7 +135,7 @@
                     <div class="form-outline">
                       <input type="text" id="email" class="form-control form-control-lg @error('email') is-invalid
                       @enderror" required value="{{ auth()->user()->email }}" name="email" />
-                      <label class="form-label" for="email">Email</label>
+                      <label class="form-label" for="email">{{__("Email Address") }}</label>
 
                       @error('email')
                         {{ $message }}
@@ -147,7 +147,7 @@
                   <div class="form-outline mb-4">
                     <input type="password" id="password" class="form-control form-control-lg @error('password') is-invalid
                     @enderror" required name="password" />
-                    <label class="form-label" for="password">Password</label>
+                    <label class="form-label" for="password">{{__("Password") }}</label>
 
                     @error('password')
                         {{ $message }}
@@ -160,11 +160,11 @@
                             
                             <select class="select" name="role_id" id="disabledSelect">
                                 @if (auth()->user()->role_id == 1)
-                                    <option value="member">Member</option>
-                                    <option value="admin" selected>Admin</option>
+                                    <option value="member">{{__("Member") }}</option>
+                                    <option value="admin" selected>{{__("Admin") }}</option>
                                 @else
-                                    <option value="member" selected>Member</option>
-                                    <option value="admin">Admin</option>
+                                    <option value="member" selected>{{__("Member") }}</option>
+                                    <option value="admin">{{__("Admin") }}</option>
                                 @endif
                             </select>
         
@@ -175,7 +175,7 @@
 
 
                   <div class="form-group row mb-4">
-                    <label for="display_picture_link" class="col-form-label">Display Image: </label>
+                    <label for="display_picture_link" class="col-form-label">{{__("Image:") }} </label>
                     <div class="input-group mb-3">
                         
                       <div class="custom-file">
@@ -192,7 +192,7 @@
 
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-info btn-lg btn-block" type="submit">Submit</button>
+                    <button class="btn btn-info btn-lg btn-block" type="submit">{{__("Submit") }}</button>
                   </div>
 
                 </form>

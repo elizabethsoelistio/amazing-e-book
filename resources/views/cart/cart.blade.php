@@ -22,12 +22,12 @@
   
                     <div class="">
                         <h5 class="mb-3"><a class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Your Book Cart</a></h5>
+                                class="fas fa-long-arrow-alt-left me-2"></i>{{__("Your Book Cart") }}</a></h5>
                         <hr>
         
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div>
-                            <p class="mb-1">Titles</p>
+                            <p class="mb-1">{{__("Title") }}</p>
                             </div>
                         </div>
 
@@ -50,30 +50,28 @@
                                             <form action="/delete-book" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="order_id" value="{{ $cart->order_id }}">
-                                                <h5 class="mb-0"><button type="submit" class="btn btn-danger">Delete</button></h5>
+                                                <h5 class="mb-0"><button type="submit" class="btn btn-danger">{{__("Delete") }}</button></h5>
                                             </form>
 
-                                            
-                                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                     </div>
                                 </div>
                             @endforeach
-                        
+
+                            <form action="/delete-all" method="post" class="text-center">
+                                @csrf
+                                <button type="submit" class="btn btn-warning">{{__("Submit") }}</button>
+                            </form>
+
                         @else
                             <tr>
-                                <h5>Empty cart</h5>
+                                <h5>{{__("Your cart is empty") }}</h5>
                             </tr>
 
                         @endif
 
                     </div>
-                    
-                    <form action="/delete-all" method="post" class="text-center">
-                        @csrf
-                        <button type="submit" class="btn btn-warning">Submit</button>
-                    </form>
 
                 </div>
                 

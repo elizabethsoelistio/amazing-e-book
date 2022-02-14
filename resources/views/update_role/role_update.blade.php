@@ -13,12 +13,12 @@
   
                     <div class="">
                         <h5 class="mb-3"><a class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Changing Roles</a></h5>
+                                class="fas fa-long-arrow-alt-left me-2"></i>{{__("Changing Roles") }}</a></h5>
                         <hr>
         
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div>
-                            <p class="mb-1">User and Roles</p>
+                            <p class="mb-1">{{__("User and Roles") }}</p>
                             </div>
                         </div>
 
@@ -38,11 +38,11 @@
                                     <p>Role:</p>
                                     <select class="role_id form-control form-select @error('role_id') is-invalid @enderror" name="role_id"  >
                                     @if ($account->role_id === 1)
-                                        <option value="admin" selected>Admin</option>
-                                        <option value="member">Member</option>
+                                        <option value="admin" selected>{{__("Admin") }}</option>
+                                        <option value="member">{{__("Member") }}</option>
                                     @else
-                                        <option value="admin">Admin</option>
-                                        <option value="member" selected>Member</option>
+                                        <option value="admin">{{__("Admin") }}</option>
+                                        <option value="member" selected>{{__("Member") }}</option>
                                     @endif
                                     
                                   </select>
@@ -56,7 +56,7 @@
                             </div>
                         
                             <input type="hidden" name="account_id" value="{{ $account->account_id }}">
-                            <h5 class="mb-0"><button type="submit" class="btn btn-danger">Save</button></h5>
+                            <h5 class="mb-0"><button type="submit" class="btn btn-danger">{{__("Save") }}</button></h5>
                         </form>
                     </div>
                 </div>

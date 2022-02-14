@@ -22,12 +22,12 @@
   
                     <div class="">
                         <h5 class="mb-3"><a class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Account Maintance</a></h5>
+                                class="fas fa-long-arrow-alt-left me-2"></i>{{__("Account Maintance") }}</a></h5>
                         <hr>
         
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div>
-                            <p class="mb-1">User and Roles</p>
+                            <p class="mb-1">{{__("User and Roles") }}</p>
                             </div>
                         </div>
 
@@ -55,18 +55,16 @@
                                         <div class="d-flex flex-row align-items-center">
                                             
                                             <div style="padding: 10px">
-                                                <a href="/update-role/{{ $account->account_id }}" class="btn btn-info">Update Role</a>
+                                                <a href="/update-role/{{ $account->account_id }}" class="btn btn-info">{{__("Update Role") }}</a>
                                             </div>
 
                                             <form action="/remove-user" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="account_id" value="{{ $account->account_id }}">
-                                                <h5 class="mb-0"><button type="submit" class="btn btn-danger">Delete User</button></h5>
+                                                <h5 class="mb-0"><button type="submit" class="btn btn-danger">{{__("Delete User") }}</button></h5>
                                             
                                             </form>
 
-                                            
-                                            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                     </div>
@@ -75,7 +73,7 @@
                         
                         @else
                             <tr>
-                                <h5>No User</h5>
+                                <h5>{{__("No User") }}</h5>
                             </tr>
 
                         @endif

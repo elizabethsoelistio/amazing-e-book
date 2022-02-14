@@ -12,8 +12,8 @@
             
             <thead>
               <tr>
-                <th scope="cols" class="text-center">Author</th>
-                <th scope="cols" class="text-center">Title</th>
+                <th scope="cols" class="text-center">{{__('Author') }}</th>
+                <th scope="cols" class="text-center">{{__('Title') }}</th>
               </tr>
             </thead>
 
@@ -35,10 +35,10 @@
         
             <main role="main" class="inner cover" style="padding:10rem 0rem 10rem 0rem">
               <h1 class="cover-heading">Amazing E-Book</h1>
-              <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+              <p class="lead">{{__("Member only rental! Please login if you have an account. Registration is open for everyone.") }}</p>
               <p class="lead">
-                <a href="/login" class="btn btn-lg btn-secondary">Login</a>
-                <a href="/register" class="btn btn-lg btn-secondary">Register</a>
+                <a href="/login" class="btn btn-lg btn-secondary">{{__('Login') }}</a>
+                <a href="/register" class="btn btn-lg btn-secondary">{{__('Register') }}</a>
               </p>
             </main>
         

@@ -16,8 +16,8 @@ class isMember
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || auth()->user()->role_id !== 2){
-            return redirect('/');
+        if(!auth()->check()||auth()->user()->role_id!==2){
+            return redirect('/home');
         }
         return $next($request);
     }
