@@ -55,9 +55,8 @@ class ProfileController extends Controller
 
         $account->save();
 
-        return view('/profile-saved', [
-            'title'=>'Profile Saved',
-            'message' => 'Profile Saved!'
+        return view('success_only.success', [
+            'title' =>'Success!'
         ]);
 
         

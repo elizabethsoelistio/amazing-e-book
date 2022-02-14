@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -27,9 +28,9 @@ class RegisterController extends Controller
             'middle_name' => 'max:25',
             'last_name' => 'required|max:25|alpha_num',
             'email' => 'required|email:dns|unique:users',
-            'password'=>'required|max:50|min:8',
+            'password'=>['required',Password::min(8)->numbers()],
             'gender_id' => 'required',
-            'role_id' => 'required',
+            'role_id' => 'required|in:admin,member',
             'display_picture_link' => 'required|image'
         ]);
 

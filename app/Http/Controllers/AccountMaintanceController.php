@@ -20,7 +20,7 @@ class AccountMaintanceController extends Controller
 
         User::where('account_id', $account_id)->delete();
 
-        return back()->with('deleteUserSuccess', 'User Deleted!');
+        return back()->with('byebyeUser', 'User Deleted!');
     }
 
     public function update_role($role_id){
@@ -34,14 +34,14 @@ class AccountMaintanceController extends Controller
     }
 
     public function update_role_user(Request $request){
-        $account = User::where('account_id', $request->account)->first();
+        $account_id = User::where('account_id', $request->account_id)->first();
 
-        if($request->role_id == 'Admin'){
-            $account['role_id'] = 1;
+        if($request->role_id === 'admin'){
+            $account_id['role_id'] = 1;
         }else{
-            $account['role_id'] = 2;
+            $account_id['role_id'] = 2;
         }
-
+        $account_id->save();
         return redirect('/account-maintance');
 
     }

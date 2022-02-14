@@ -8,6 +8,7 @@
           <a class="nav-link active" href="/home">Homepage</a>
           <a class="nav-link active" href="/cart">Cart</a>
           <a class="nav-link active" href="/profile">Profile</a>
+          
           @auth
             @if (auth()->user()->role_id === 1)
               <a class="nav-link active" href="/account-maintance">Account Maintance</a>
