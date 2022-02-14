@@ -42,7 +42,9 @@ class AccountMaintanceController extends Controller
             $account_id['role_id'] = 2;
         }
         $account_id->save();
-        return redirect('/account-maintance');
+        return view('success_only.success', [
+            'title' =>'Success!'
+        ]);
 
     }
 
