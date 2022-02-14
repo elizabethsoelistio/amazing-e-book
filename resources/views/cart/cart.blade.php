@@ -59,7 +59,7 @@
                                 </div>
                             @endforeach
 
-                            <form action="/delete-all" method="post" class="text-center">
+                            <form action="/rent-all" method="post" class="text-center">
                                 @csrf
                                 <button type="submit" class="btn btn-warning">{{__("Submit") }}</button>
                             </form>

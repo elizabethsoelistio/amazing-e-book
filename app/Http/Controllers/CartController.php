@@ -25,9 +25,9 @@ class CartController extends Controller
     }
 
     public function deleteAll(){
-        Order::where('account_id', auth()->account_id)->delete();
+        Order::where('account_id', auth()->user()->account_id)->delete();
         
-        return view('/deleteAll', [
+        return view('success_only.success', [
             'title' => 'Thank you for Renting',
             'message' => 'Thank you for Renting!'
         ]);
